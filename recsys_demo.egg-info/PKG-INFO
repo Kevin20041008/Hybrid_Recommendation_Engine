@@ -1,0 +1,45 @@
+Metadata-Version: 2.4
+Name: recsys-demo
+Version: 0.1.0
+Summary: Recommendation system demo
+Requires-Python: >=3.8
+Requires-Dist: numpy>=1.21
+Requires-Dist: pandas>=1.3
+Requires-Dist: scikit-learn>=1.0
+Requires-Dist: scipy>=1.7
+Requires-Dist: matplotlib>=3.4
+
+# 推荐系统引擎
+
+基于Python和Spark MLlib的完整推荐系统实现，包含协同过滤、用户聚类、矩阵分解等核心算法。
+
+## 功能特性
+
+- **协同过滤算法**: 支持基于用户和基于物品的协同过滤
+- **用户聚类**: 使用K-means和DBSCAN进行用户分群
+- **矩阵分解**: 实现SVD、NMF和SGD等矩阵分解算法
+- **混合推荐**: 结合多种算法的混合推荐策略
+- **实时推荐**: 支持实时推荐更新和会话推荐
+- **性能优化**: 缓存、批处理、预计算等优化策略
+- **Spark集成**: 支持大规模数据处理
+- **A/B测试**: 内置A/B测试框架
+
+## 技术栈
+
+- Python 3.8+
+- NumPy, Pandas, Scikit-learn
+- Apache Spark (PySpark)
+- Redis (可选)
+- Matplotlib, Seaborn
+
+## 快速开始
+
+### 1. 环境设置
+
+```bash
+# 克隆项目
+git clone <repository-url>
+cd recommendation-engine
+
+# 运行部署脚本
+python deploy.py
