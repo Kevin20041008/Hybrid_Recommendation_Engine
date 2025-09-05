@@ -9,7 +9,7 @@
 - **协同过滤（CF）**
   - `user_based` / `item_based` 两种模式
   - 相似度：`cosine` / `pearson` / `jaccard`
-  - ✅ **Item-based 余弦 Top-K 快速路径**（默认打开）：仅保留每个物品 Top-K 相似邻居，预测速度显著提升
+  -  **Item-based 余弦 Top-K 快速路径**（默认打开）：仅保留每个物品 Top-K 相似邻居，预测速度显著提升
 - **矩阵分解（MF）**
   - `svd` / `nmf` / `sgd` 三种实现
   - SVD 训练带**去均值**，预测时加回均值，效果更稳
@@ -50,9 +50,9 @@ recsys-demo/
 ├─ deploy.py                              # 环境/依赖检查示例
 ├─ engine.py                              # 训练与组合推荐的统一入口
 ├─ main.py                                # 演示脚本（含 Spark 兜底 try/except）
-├─ spark_integration.py                   # Spark ALS / KMeans（可选）
-├─ pyproject.toml                         # 可编辑安装（推荐）
-└─ requirements.txt                       # 基础依赖（可选）
+├─ spark_integration.py                   # Spark ALS / KMeans
+├─ pyproject.toml                         
+└─ requirements.txt                       # 基础依赖
 ```
 
 ------
@@ -71,7 +71,6 @@ recsys-demo/
 
 ## 安装与运行
 
-### 方式一（推荐）：可编辑安装
 
 ```
 # 进入项目根目录
@@ -153,7 +152,7 @@ print(recs)
 
 ------
 
-## Spark 演示（可选）
+## Spark 演示
 
 1. 安装依赖：
 
@@ -194,7 +193,7 @@ print(recs)
 
 ------
 
-## 性能与效果优化建议
+## 后续优化可能
 
 - **Item-based 余弦 Top-K 快速路径**（已内置）：将 `method='item_based', similarity='cosine'` 时自动启用，Top-K 默认 100
 - **评估协议**：从 RMSE/MAE 扩展到 Top-K（Precision@K / Recall@K / NDCG@K）
@@ -202,16 +201,6 @@ print(recs)
 - **隐式反馈ALS**：浏览/点击/购买等数据更适合（可接 `implicit` 库）
 - **统一索引映射**：将 `userId`/`movieId` 映射为连续整数，便于稀疏矩阵与大规模计算
 
-> 需要完整代码模板（MMR/implicit/tuning 等），告诉我你要的方向，我可以直接补充文件。
 
-------
 
-## 许可证
 
-MIT（可按需修改）
-
-------
-
-## 致谢 & 反馈
-
-- 若你在集成到自己数据/服务中遇到问题，或希望加入更多算法（如 BPR、LightFM、双塔召回、重排模型等），直接提需求，我会给出对应代码与接入说明。
